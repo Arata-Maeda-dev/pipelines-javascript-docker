@@ -4,7 +4,7 @@
 
 trigger:
 - main
-- feature/*
+
 pool:
   vmImage: 'ubuntu-latest' 
 
@@ -14,13 +14,8 @@ variables:
 steps:
 - task: Docker@2
   displayName: Build an image
-  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
   inputs:
      repository: $(imageName)
      command: build
      Dockerfile: app/Dockerfile
      
-
-pr:
-- main
-- feature/*
