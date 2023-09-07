@@ -29,6 +29,6 @@ stages:
           $(tag)
     - task: PublishBuildArtifacts@1
       inputs:
-        PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        PathtoPublish: '$(Build.SourcesDirectory)/app/Dockerfile'
         ArtifactName: 'drop'
         publishLocation: 'Container'
